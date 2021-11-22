@@ -113,26 +113,4 @@ class Personnage():
         l.initLab(tabMursNiveau1)
         
         self.__init__(l,1)
-        # self.position=[1,1] # [1,1] case en haut à gauche
-        # self.etat=nbVies # nombre de vies
-        # self.win=False # = True quand le personnage a atteint la sortie
-        # self.labDuPerso=l.matrice
-    
-    def play(self):
-        self.explicationsDeplacement()
-        print()
-        self.afficherLab()
-        
-        while self.etat>0 and self.win==False:
-            self.deplacement()
-            self.afficherLab()
-        
-        if self.win==True:
-            print(" \n Niveau réussi ! GG bg ")
-            
-        if self.etat==0 :
-            print("\n T'es mort dommaj")
-            
-        self.reset()    
-            
-            
+       
