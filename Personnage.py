@@ -5,10 +5,13 @@
 #%% importations 
 
 from Lab import *
+from Monstre import *
 
 
 #%%
 nbVies = 1
+
+#TODO: encapsulation
 
 class Personnage():
     def __init__(self, labDuPerso, nbVies, nbPersonnages=1):
@@ -16,13 +19,14 @@ class Personnage():
         self.etat=nbVies # nombre de vies
         self.win=False # = True quand le personnage a atteint la sortie
         self.labDuPerso=labDuPerso.matrice
+        #TODO: vérif périodique HF pos_perso==pos_monstre
         
     def explicationsDeplacement(self):
         print("Pour vous déplacer, vous allez utiliser les touches q,s,z,d :\n \
-              q pour vous délacer à gauche,\n \
-              d pour vous délacer à droite,\n \
-              s pour vous délacer en bas,\n \
-              z pour vous délacer en haut.")
+              q pour vous déplacer à gauche,\n \
+              d pour vous déplacer à droite,\n \
+              s pour vous déplacer en bas,\n \
+              z pour vous déplacer en haut.")
 
         
         
