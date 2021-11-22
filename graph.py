@@ -24,7 +24,7 @@ continuer = 1
 
 while continuer : #boucle principale
     
-    
+    #Evolve(CMD)
     
     continuer_jeu = 1
     continuer_accueil = 1
