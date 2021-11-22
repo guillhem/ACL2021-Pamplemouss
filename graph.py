@@ -94,7 +94,7 @@ while continuer : #boucle principale
                     screen.blit(fond,f_rect)
                     screen.blit(txt_vic,txt_vicrect)
                     pygame.display.flip() 
-                    time.sleep(5)
+                    time.sleep(3)
                     
                     continuer_jeu = 0
                     
@@ -104,7 +104,7 @@ while continuer : #boucle principale
                     screen.blit(fond,f_rect)
                     screen.blit(txt_mort,txt_mortrect)
                     pygame.display.flip()
-                    time.sleep(5)
+                    time.sleep(3)
                     
                     continuer_jeu = 0
                     
