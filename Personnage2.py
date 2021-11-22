@@ -136,7 +136,3 @@ class Personnage():
         self.reset()    
             
             
-#%%
-
-# p=Personnage(l,1)
-# p.play()
