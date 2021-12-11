@@ -30,9 +30,7 @@ class Personnage():
         
         
     def deplacement(self,direction):
-        print(direction)
-        print("PV = "+str(self.etat))
-       
+        
         i,j = self.position
         
         if direction=="q": # gauche
@@ -91,7 +89,7 @@ class Personnage():
         n = len(L)
         for i in range (n) :
             for j in range (n) :
-                print(i,j)
+                
                 x = i*taille_sprite
                 y = j*taille_sprite
                 
