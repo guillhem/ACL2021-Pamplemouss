@@ -8,7 +8,7 @@ import pygame
 
 pygame.init()
 
-chemin = "C:/Users/sabri/OneDrive/Bureau/ENSEM cours/2A\ACL/projet_pamplemouss\images/"
+chemin = "images/"
 
 taille_sprite = 40
 
@@ -29,7 +29,7 @@ pygame.display.set_caption(title)
 #musique de fond  
 pygame.mixer.music.load("KIBI.mp3")
 pygame.mixer.music.play(loops=-1) # se répète à l'infini
-pygame.mixer.music.set_volume(0.5)
+
 
 #%% TEXTES
 police = pygame.font.Font("consolas.ttf",60)
