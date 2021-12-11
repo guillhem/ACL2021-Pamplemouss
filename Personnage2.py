@@ -5,7 +5,6 @@
 #%% importations 
 
 from Lab import *
-import pygame
 from param import *
 
 
@@ -31,6 +30,8 @@ class Personnage():
         
     def deplacement(self,direction):
         
+       
+       
         i,j = self.position
         
         if direction=="q": # gauche
@@ -84,7 +85,7 @@ class Personnage():
                 
                 
     def afficherLab(self):
-        taille_sprite = 40
+        
         L = self.labDuPerso
         n = len(L)
         for i in range (n) :
@@ -111,4 +112,23 @@ class Personnage():
         l.initLab(tabMursNiveau1)
         
         self.__init__(l,1)
-       
+        
+    
+    def play(self):
+        self.explicationsDeplacement()
+        print()
+        self.afficherLab()
+        
+        while self.etat>0 and self.win==False:
+            self.deplacement()
+            self.afficherLab()
+        
+        if self.win==True:
+            print(" \n Niveau réussi ! GG bg ")
+            
+        if self.etat==0 :
+            print("\n T'es mort dommaj")
+            
+        self.reset()    
+            
+            

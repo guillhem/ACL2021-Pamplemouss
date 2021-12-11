@@ -7,8 +7,8 @@ Created on Sun Nov 21 21:21:15 2021
 
 import sys, time, pygame as py
 from Personnage2 import *
-import Personnage2
-from continue_jeu import continue_jeu
+
+
 
 py.init()
 

@@ -32,10 +32,13 @@ pygame.mixer.music.play(loops=-1) # se répète à l'infini
 
 
 #%% TEXTES
-police = pygame.font.Font("consolas.ttf",35)
+police_deb = pygame.font.Font("consolas.ttf",35)
+police = pygame.font.Font("consolas.ttf",60)
 
 # texte de début
-txt_debut = police.render("Appuyez sur espace pour commencer une partie \nAppuyez sur S pour ouvrir le mode bac à sable (en construction) \nAppuyez sur m pour couper le son",True,pamplemou,black)
+txt_debut = police_deb.render("Appuyez sur espace pour commencer une partie \n \
+                           Appuyez sur S pour ouvrir le mode bac à sable (en construction) \n \
+                           Appuyez sur m pour couper le son",True,pamplemou,black)
 txt_debutrect = txt_debut.get_rect()
 txt_debutrect.center = rectScreen.center
 
