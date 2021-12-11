@@ -8,7 +8,7 @@ import pygame
 
 pygame.init()
 
-chemin = "C:/Users/sabri/OneDrive/Bureau/ENSEM cours/2A\ACL/projet_pamplemouss\images/"
+chemin = r"C:/Users/sabri/OneDrive/Bureau/ENSEM cours/2A\ACL/projet_pamplemouss\images/"
 
 taille_sprite = 40
 
@@ -51,25 +51,25 @@ txt_vicrect.center = rectScreen.center
 
 #%% Images
 
-icone = pygame.image.load(chemin+"icone.jpg")
+icone = pygame.image.load(chemin+"/icone.jpg")
 pygame.display.set_icon(icone)
 
 # importation du logo
-pamp = pygame.image.load(chemin+"pamlemousse.jpg")
+pamp = pygame.image.load(chemin+"/pamlemousse.jpg")
 pamprect = pamp.get_rect()
 
 #icone joueur
-joueur = pygame.image.load(chemin+"joueur_ic.jpg")
+joueur = pygame.image.load(chemin+"/joueur_ic.jpg")
 joueur = pygame.transform.scale(joueur, (40, 40))
 j_rect = joueur.get_rect()
 
 #NIVEAU
 
     #fond 
-fond = pygame.image.load(chemin+"fond.png")
+fond = pygame.image.load(chemin+"/fond.png")
 f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
 
-mur = pygame.image.load(chemin+"image_mur.png").convert()
-piege = pygame.image.load(chemin+"image_piege.png").convert()
-arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
+mur = pygame.image.load(chemin+"/image_mur.png").convert()
+piege = pygame.image.load(chemin+"/image_piege.png").convert()
+arrivee = pygame.image.load(chemin+"/image_arrivee.png").convert_alpha()
