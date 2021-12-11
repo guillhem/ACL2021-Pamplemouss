@@ -26,11 +26,16 @@ import numpy as np
 
 class Lab():
     def __init__(self,n):
-        self.n=n # taille du labyrinthe : nxn
-        self.matrice=np.zeros((n+2,n+2),dtype=int)
+        self.__n=n # taille du labyrinthe : nxn
+        self.__matrice=np.zeros((n+2,n+2),dtype=int)
               # pour ajouter les murs autour pour faciliter le codage
                     
-        
+    def getTaille(self):
+        return(self.__n)
+
+    def getMatrice(self):
+        return(self.__matrice)
+
     def initLab(self, tabMurs):
         
         # on place des murs autour du labyrinthe
@@ -38,33 +43,33 @@ class Lab():
         # pas besoin de vérifier si là où on veut se déplacer est dans la 
         # matrice, juste si là où on veut se déplacer il y a un mur
         
-        for j in range(self.n+2):
-            self.matrice[0][j]=1
-        for j in range(self.n+2):
-            self.matrice[-1][j]=1
-        for j in range(self.n+2):
-            self.matrice[j][0]=1
-        for j in range(self.n+2):
-            self.matrice[j][-1]=1
+        for j in range(self.__n+2):
+            self.__matrice[0][j]=1
+        for j in range(self.__n+2):
+            self.__matrice[-1][j]=1
+        for j in range(self.__n+2):
+            self.__matrice[j][0]=1
+        for j in range(self.__n+2):
+            self.__matrice[j][-1]=1
         
         # placement des murs intérieur
-        for i in range(self.n):
-            for j in range(self.n):
-                self.matrice[i+1][j+1]=tabMurs[i][j]
+        for i in range(self.__n):
+            for j in range(self.__n):
+                self.__matrice[i+1][j+1]=tabMurs[i][j]
             
         # placement du personnage
-        self.matrice[1][1]=3
+        self.__matrice[1][1]=3
         
         # placement de la sortie
-        self.matrice[self.n][self.n]=2
+        self.__matrice[self.__n][self.__n]=2
         
         
             
     def ajouterMur(self,i,j): # premiere case où on peut ajouter un mur : 1x1 
-        self.matrice[i][j]=1
+        self.__matrice[i][j]=1
         
     def enleverMur(self,i,j):
-        self.matrice[i][j]=0
+        self.__matrice[i][j]=0
         
 #%%
 
