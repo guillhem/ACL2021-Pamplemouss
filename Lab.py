@@ -8,6 +8,7 @@
 # 2 pour la sortie
 # 3 pour la position du joueur
 # 4 pour les pieges
+# 5 pour les attaques
 
 
 # on partirait sur des lab de 30x30

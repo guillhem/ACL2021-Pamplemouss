@@ -8,7 +8,7 @@ import pygame
 
 pygame.init()
 
-chemin = r"C:/Users/sabri/OneDrive/Bureau/ENSEM cours/2A\ACL/projet_pamplemouss\images/"
+chemin = r"C:\Users\DELL\Documents\Projet python\ACL2021-Pamplemouss-main"
 
 taille_sprite = 40
 
@@ -26,7 +26,7 @@ pygame.display.set_caption(title)
 
 
 #%% MUSIQUE
-#musique de fond  
+#musique de fond
 pygame.mixer.music.load("KIBI.mp3")
 pygame.mixer.music.play(loops=-1) # se répète à l'infini
 pygame.mixer.music.set_volume(0.5)
@@ -65,7 +65,7 @@ j_rect = joueur.get_rect()
 
 #NIVEAU
 
-    #fond 
+    #fond
 fond = pygame.image.load(chemin+"/fond.png")
 f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
@@ -73,3 +73,4 @@ f_rect.center = rectScreen.center
 mur = pygame.image.load(chemin+"/image_mur.png").convert()
 piege = pygame.image.load(chemin+"/image_piege.png").convert()
 arrivee = pygame.image.load(chemin+"/image_arrivee.png").convert_alpha()
+attaque = pygame.image.load(chemin+"/image_attaque.png").convert()

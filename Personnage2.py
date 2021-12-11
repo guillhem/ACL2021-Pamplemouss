@@ -35,12 +35,11 @@ class Personnage():
        
         i,j = self.position
         
-        if direction=="q": # gauche
-            if self.labDuPerso[i][j-1]==0: # si la case est vide
+        if direction=="q":# gauche
+            if self.labDuPerso[i][j-1]==0:# si la case est vide
                 self.labDuPerso[i][j]=0 # le personnage se déplace dans le lab
                 self.labDuPerso[i][j-1]=3
                 self.position=[i,j-1] # on change son paramètre position
-                
             elif self.labDuPerso[i][j-1]==2:
                 self.win=True
                 
@@ -84,6 +83,9 @@ class Personnage():
             elif self.labDuPerso[i-1][j]==4:
                 self.etat-=1
                 
+        if direction=="a": #attaque distance
+            self.labDuPerso[i+1][j]=5
+                
                 
     def afficherLab(self):
         taille_sprite = 40
@@ -91,7 +93,7 @@ class Personnage():
         n = len(L)
         for i in range (n) :
             for j in range (n) :
-                print(i,j)
+               # print(i,j)
                 x = i*taille_sprite
                 y = j*taille_sprite
                 
@@ -103,6 +105,8 @@ class Personnage():
                     screen.blit(arrivee,(x,y))
                 if L[j][i] == 3 :
                     screen.blit(joueur,(x,y))
+                if L[j][i]==5 :
+                    screen.blit(attaque,(x,y))
                     
                     
                     
