@@ -10,14 +10,14 @@ pygame.init()
 
 chemin = "images/"
 
-taille_sprite = 40
+taille_sprite = 30
 
 #  propriétés de la fenêtre
-title = "PAMPLEMOUU"
-size = width, height = 880, 880
+title = "PAMPLEMOUSS"
+size = width, height = 660, 690
 speed = [1,1]
 black = 0, 0, 0
-pamplemou = 246, 67, 113
+pamplemou = 246, 67, 113   #f64371
 
 screen = pygame.display.set_mode(size)
 rectScreen = screen.get_rect()
@@ -32,10 +32,10 @@ pygame.mixer.music.play(loops=-1) # se répète à l'infini
 
 
 #%% TEXTES
-police = pygame.font.Font("consolas.ttf",60)
+police = pygame.font.Font("consolas.ttf",35)
 
 # texte de début
-txt_debut = police.render("Appuyez sur espace",True,pamplemou,black)
+txt_debut = police.render("Appuyez sur espace pour commencer une partie \nAppuyez sur S pour ouvrir le mode bac à sable (en construction) \nAppuyez sur m pour couper le son",True,pamplemou,black)
 txt_debutrect = txt_debut.get_rect()
 txt_debutrect.center = rectScreen.center
 
@@ -60,16 +60,29 @@ pamprect = pamp.get_rect()
 
 #icone joueur
 joueur = pygame.image.load(chemin+"joueur_ic.jpg")
-joueur = pygame.transform.scale(joueur, (40, 40))
+joueur = pygame.transform.scale(joueur, (taille_sprite, taille_sprite))
 j_rect = joueur.get_rect()
 
 #NIVEAU
 
     #fond 
 fond = pygame.image.load(chemin+"fond.png")
+fond = pygame.transform.scale(fond, size)
 f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
 
+
 mur = pygame.image.load(chemin+"image_mur.png").convert()
+mur = pygame.transform.scale(mur, (taille_sprite, taille_sprite))
+
 piege = pygame.image.load(chemin+"image_piege.png").convert()
+piege = pygame.transform.scale(piege, (taille_sprite, taille_sprite))
+
 arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
+arrivee = pygame.transform.scale(arrivee, (taille_sprite, taille_sprite))
+
+
+direc = pygame.image.load(chemin+"direction.png").convert_alpha()
+direc = pygame.transform.scale(direc, (200, 200))
+direc_rect = direc.get_rect()
+direc_rect.bottomleft = rectScreen.bottomleft
