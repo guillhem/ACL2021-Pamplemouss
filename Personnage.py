@@ -5,6 +5,7 @@
 #%% importations 
 
 from Lab import *
+from Monstre import *
 
 
 #%%
@@ -12,10 +13,12 @@ nbVies = 1
 
 class Personnage():
     def __init__(self, labDuPerso, nbVies, nbPersonnages=1):
-        self.position=[1,1] # [1,1] case en haut à gauche
-        self.etat=nbVies # nombre de vies
-        self.win=False # = True quand le personnage a atteint la sortie
-        self.labDuPerso=labDuPerso.matrice
+        self.__position=[1,1] # [1,1] case en haut à gauche
+        self.__etat=nbVies # nombre de vies
+        self.__win=False # = True quand le personnage a atteint la sortie
+        self.__labDuPerso=labDuPerso.getMatrice()
+        self.__monstres={}
+        self.__monstres["monstre_1"]= Monstre([5,7], "horiz", periode_deplacement=1)
         
     def explicationsDeplacement(self):
         print("Pour vous déplacer, vous allez utiliser les touches q,s,z,d :\n \
@@ -27,64 +30,64 @@ class Personnage():
         
         
     def deplacement(self):
-        print("PV = "+str(self.etat))
+        print("PV = "+str(self.__etat))
         direction=input("direction de déplacement ? : ")
-        i,j = self.position
+        i,j = self.__position
         # i=self.position[0]
         # j=self.position[1]
         
         if direction=="q": # gauche
-            if self.labDuPerso[i][j-1]==0: # si la case est vide
-                self.labDuPerso[i][j]=0 # le personnage se déplace dans le lab
-                self.labDuPerso[i][j-1]=3
-                self.position=[i,j-1] # on change son paramètre position
+            if self.__labDuPerso[i][j-1]==0: # si la case est vide
+                self.__labDuPerso[i][j]=0 # le personnage se déplace dans le lab
+                self.__labDuPerso[i][j-1]=3
+                self.__position=[i,j-1] # on change son paramètre position
                 
-            elif self.labDuPerso[i][j-1]==2:
-                self.win=True
+            elif self.__labDuPerso[i][j-1]==2:
+                self.__win=True
                 
-            elif self.labDuPerso[i][j-1]==4:
-                self.etat-=1
+            elif self.__labDuPerso[i][j-1]==4:
+                self.__etat-=1
                 
                 
         if direction=="s": # bas
-            if self.labDuPerso[i+1][j]==0:
-                self.labDuPerso[i][j]=0
-                self.labDuPerso[i+1][j]=3
-                self.position=[i+1,j]
+            if self.__labDuPerso[i+1][j]==0:
+                self.__labDuPerso[i][j]=0
+                self.__labDuPerso[i+1][j]=3
+                self.__position=[i+1,j]
                 
-            elif self.labDuPerso[i+1][j]==2:
-                self.win=True
+            elif self.__labDuPerso[i+1][j]==2:
+                self.__win=True
                 
-            elif self.labDuPerso[i+1][j]==4:
-                self.etat-=1
+            elif self.__labDuPerso[i+1][j]==4:
+                self.__etat-=1
                 
         if direction=="d": # droite
-            if self.labDuPerso[i][j+1]==0:
-                self.labDuPerso[i][j]=0
-                self.labDuPerso[i][j+1]=3
-                self.position=[i,j+1]
+            if self.__labDuPerso[i][j+1]==0:
+                self.__labDuPerso[i][j]=0
+                self.__labDuPerso[i][j+1]=3
+                self.__position=[i,j+1]
                 
-            elif self.labDuPerso[i][j+1]==2:
-                self.win=True
+            elif self.__labDuPerso[i][j+1]==2:
+                self.__win=True
                 
-            elif self.labDuPerso[i][j+1]==4:
-                self.etat-=1
+            elif self.__labDuPerso[i][j+1]==4:
+                self.__etat-=1
                 
         if direction=="z": # haut
-            if self.labDuPerso[i-1][j]==0:
-                self.labDuPerso[i][j]=0
-                self.labDuPerso[i-1][j]=3
-                self.position=[i-1,j]
+            if self.__labDuPerso[i-1][j]==0:
+                self.__labDuPerso[i][j]=0
+                self.__labDuPerso[i-1][j]=3
+                self.__position=[i-1,j]
                 
-            elif self.labDuPerso[i-1][j]==2:
-                self.win=True
+            elif self.__labDuPerso[i-1][j]==2:
+                self.__win=True
                 
-            elif self.labDuPerso[i-1][j]==4:
-                self.etat-=1
+            elif self.__labDuPerso[i-1][j]==4:
+                self.__etat-=1
                 
                 
     def afficherLab(self):
-        print(self.labDuPerso)
+        print(self.__labDuPerso)
     
     def reset(self) : 
         l=Lab(20)
@@ -101,14 +104,14 @@ class Personnage():
         print()
         self.afficherLab()
         
-        while self.etat>0 and self.win==False:
+        while self.__etat>0 and self.win==False:
             self.deplacement()
             self.afficherLab()
         
-        if self.win==True:
+        if self.__win==True:
             print(" \n Niveau réussi ! GG bg ")
             
-        if self.etat==0 :
+        if self.__etat==0 :
             print("\n T'es mort dommaj")
             
         self.reset()    
