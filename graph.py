@@ -33,6 +33,7 @@ while continuer : #boucle principale
     while continuer_accueil :
         
         # pygame.time.Clock().tick(30)
+	pygame.mixer.music.set_volume(0.5)
         
         for event in pygame.event.get() :
         
