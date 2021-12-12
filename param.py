@@ -5,6 +5,8 @@ Created on Mon Nov 22 06:12:45 2021
 @author: sabri
 """
 import pygame
+import superLab
+
 
 pygame.init()
 
@@ -17,6 +19,8 @@ title = "PAMPLEMOUSS"
 size = width, height = 660, 690
 speed = [1,1]
 black = 0, 0, 0
+black_t = 0, 0, 0, 150
+
 pamplemou = 246, 67, 113   #f64371
 
 screen = pygame.display.set_mode(size)
@@ -24,6 +28,8 @@ rectScreen = screen.get_rect()
 
 pygame.display.set_caption(title)
 
+
+l = superLab.fich2lab("niveau_1.txt")
 
 #%% MUSIQUE
 #musique de fond  
@@ -33,14 +39,18 @@ pygame.mixer.music.play(loops=-1) # se répète à l'infini
 
 #%% TEXTES
 police_deb = pygame.font.Font("consolas.ttf",35)
-police = pygame.font.Font("consolas.ttf",60)
+police = pygame.font.Font("consolas.ttf",50)
+police_ui = pygame.font.Font("consolas.ttf",20)
 
 # texte de début
-txt_debut = police_deb.render("Appuyez sur espace pour commencer une partie \n \
-                           Appuyez sur S pour ouvrir le mode bac à sable (en construction) \n \
-                           Appuyez sur m pour couper le son",True,pamplemou,black)
-txt_debutrect = txt_debut.get_rect()
-txt_debutrect.center = rectScreen.center
+txt_debut = police_deb.render("Appuyez sur espace",True,pamplemou,black)
+txt_debut2 = police_deb.render("pour commencer une partie",True,pamplemou,black)
+
+txt_debutrect = txt_debut.get_rect(center=(330,275))
+txt_debutrect2 = txt_debut2.get_rect(center=(330,335))
+
+
+
 
 #texte de mort
 txt_mort = police.render("T'es mort dommaj",True,pamplemou,None)
@@ -51,6 +61,7 @@ txt_mortrect.center = rectScreen.center
 txt_vic = police.render("Niveau réussi ! GG bg",True,pamplemou,None)
 txt_vicrect = txt_vic.get_rect()
 txt_vicrect.center = rectScreen.center
+
 
 #%% Images
 
@@ -75,7 +86,7 @@ f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
 
 
-mur = pygame.image.load(chemin+"image_mur.png").convert()
+mur = pygame.image.load(chemin+"image_mur.png").convert_alpha()
 mur = pygame.transform.scale(mur, (taille_sprite, taille_sprite))
 
 piege = pygame.image.load(chemin+"image_piege.png").convert()

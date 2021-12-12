@@ -26,8 +26,8 @@ import numpy as np
 
 class Lab():
     def __init__(self,n):
-        self.n=n # taille du labyrinthe : nxn
-        self.matrice=np.zeros((n+2,n+2),dtype=int)
+        self.n = n # taille du labyrinthe : nxn
+        self.matrice = np.zeros((n+2,n+2),dtype=int)
               # pour ajouter les murs autour pour faciliter le codage
                     
         
@@ -63,28 +63,23 @@ class Lab():
             
     def ajouterMur(self,i,j): # premiere case où on peut ajouter un mur : 1x1 
         self.matrice[i][j]=1
-        
+         
     def enleverMur(self,i,j):
         self.matrice[i][j]=0
         
 #%%
-
-
-tabMursNiveau1=np.zeros((20,20),dtype=int)
-
-# placement des murs :
-for i in range(8):
-    tabMursNiveau1[i][4]=1
-    tabMursNiveau1[-i][9]=1
-    tabMursNiveau1[i][13]=1
-    tabMursNiveau1[-i][16]=1 
-
-# placement des pieges :
-tabMursNiveau1[0][2]=4   #plus pratique pour les test
-tabMursNiveau1[9][5]=4
-tabMursNiveau1[7][11]=4
-tabMursNiveau1[10][14]=4
-tabMursNiveau1[18][19]=4
-   
-l=Lab(20)
-l.initLab(tabMursNiveau1)
+def fich2lab(nomfich) :
+    with open (nomfich,"r") as nv :
+        txt = nv.readlines()
+        lab = Lab(len(txt))
+        m = np.zeros((1,22))
+        
+        for line in txt :
+            line = line.strip()
+            mat = [[int(k) for k in line]]
+            m = np.concatenate((m,mat))
+            
+        lab.matrice = m[1::]
+    
+    nv.close()
+    return lab

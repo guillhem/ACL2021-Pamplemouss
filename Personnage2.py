@@ -4,7 +4,7 @@
 
 #%% importations 
 
-from Lab import *
+from superLab import *
 from param import *
 
 
@@ -108,15 +108,13 @@ class Personnage():
         
     
     def reset(self) : 
-        l=Lab(20)
-        l.initLab(tabMursNiveau1)
-        
+        l = superLab.fich2lab("niveau_1.txt")
         self.__init__(l,1)
         
     
     def play(self):
         self.explicationsDeplacement()
-        print()
+        
         self.afficherLab()
         
         while self.etat>0 and self.win==False:
