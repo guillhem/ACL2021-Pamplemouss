@@ -7,9 +7,9 @@ Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans u
 
 ## QUOI DE NEUF DANS LE SPRINT 2
 
-* Un nouveau menu
-* Les niveaux sont implémentés via fichiers textes (plus simples à modifier)
-* On a rajouté de monstres
+* Un nouvel écran d'acceuil
+* Les niveaux sont implémentés via fichiers textes (vous pouvez donc modifier le niveau cf. plus bas)
+* Un menu pause
 
 
 ## PARTICIPANTS DU PROJET
@@ -31,6 +31,15 @@ Le dossier immages, le fichier de police et le son sont nécéssaires au bon fon
 
 Pour jouer il faut éxécuter le fichier _graph.py_
 
+## MODIFIER LE NIVEAU
+
+Pour modifier le niveau il suffit de modifier le fichier _niveau_1.txt_ en gardant en tête que :
+	* La matrice doit être une matrice carrée
+	* 0 correspond au chemin
+	* 1 correspond au mur
+	* 2 correspond à la sortie
+	* 3 correspond au départ
+	* 4 correspond à un piège
 
 
 ## DEBUG
