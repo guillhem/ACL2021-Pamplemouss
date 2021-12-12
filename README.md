@@ -2,15 +2,20 @@
 ***
 
 # **BIENVENUE DANS LA COMMUNAUTE DU PAMPLEMOUSS**
-## **SPRINT 2**
-
 
 Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans un labyrinthe à la recherche du Chat SKIBIDI !!
+
+## QUOI DE NEUF DANS LE SPRINT 2
+
+* Un nouveau menu
+* Les niveaux sont implémentés via fichiers textes (plus simples à modifier)
+* On a rajouté de monstres
+
 
 ## PARTICIPANTS DU PROJET
 
 * ROUBERTOU Sarah  https://github.com/Goodsaho
-* JEAN Loîs        https://github.com/LoJe-24-8
+* JEAN Loïs        https://github.com/LoJe-24-8
 * CARAVEC Guilhem  https://github.com/guillhem
 * ALLOUCH Sabrina  https://github.com/cath-fmarie
 
@@ -31,5 +36,5 @@ Pour jouer il faut éxécuter le fichier _graph.py_
 ## DEBUG
 
 Si le programme ne fonctionne pas (écran noir) :
-		dans le fichoer _param.py_ entrer le chemin du dossier image dans la variable _chemin_
+		dans le fichier _param.py_ entrer le chemin du dossier image dans la variable _chemin_
 
