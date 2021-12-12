@@ -77,7 +77,7 @@ while continuer : #boucle principale
             
     # affichage du niveau   
       
-    py.mixer.music.set_volume(0.1)
+    py.mixer.music.set_volume(0.2)
      
     screen.blit(fond,f_rect)
     p.afficherLab()
