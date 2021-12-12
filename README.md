@@ -22,7 +22,7 @@ Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans u
 
 ## LANGAGE ET MODULES UTILISES
 
-Python 3 avec pygame
+Python 3 avec pygame et nummpy
 
 
 ## INSTALLATION
