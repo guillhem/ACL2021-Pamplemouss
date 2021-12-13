@@ -8,6 +8,7 @@
 # 2 pour la sortie
 # 3 pour la position du joueur
 # 4 pour les pieges
+# 5 pour les cases de téléportation
 
 
 # on partirait sur des lab de 30x30
@@ -19,6 +20,7 @@
 
 import numpy as np
 
+from TP import *
 
 
 #%%
@@ -87,6 +89,9 @@ tabMursNiveau1[9][5]=4
 tabMursNiveau1[7][11]=4
 tabMursNiveau1[10][14]=4
 tabMursNiveau1[18][19]=4
+
+# placement des cases de TP (à compléter)
+#TODO tabMursNiveau1[][]= TP(destination=[,])
    
 l=Lab(20)
 l.initLab(tabMursNiveau1)

@@ -47,6 +47,9 @@ class Personnage():
                 
             elif self.__labDuPerso[i][j-1]==4:
                 self.__etat-=1
+
+            elif self.__labDuPerso[i][j-1]==5:
+                self.inst_relocate(self.__labDuPerso.getDestination())
                 
                 
         if direction=="s": # bas
@@ -60,6 +63,9 @@ class Personnage():
                 
             elif self.__labDuPerso[i+1][j]==4:
                 self.__etat-=1
+
+            elif self.__labDuPerso[i+1][j]==5:
+                self.inst_relocate(self.__labDuPerso.getDestination())
                 
         if direction=="d": # droite
             if self.__labDuPerso[i][j+1]==0:
@@ -72,6 +78,9 @@ class Personnage():
                 
             elif self.__labDuPerso[i][j+1]==4:
                 self.__etat-=1
+
+            elif self.__labDuPerso[i][j+1]==5:
+                self.inst_relocate(self.__labDuPerso.getDestination())
                 
         if direction=="z": # haut
             if self.__labDuPerso[i-1][j]==0:
@@ -84,7 +93,17 @@ class Personnage():
                 
             elif self.__labDuPerso[i-1][j]==4:
                 self.__etat-=1
-                
+
+            elif self.__labDuPerso[i-1][j]==5:
+                self.inst_relocate(self.__labDuPerso.getDestination())
+
+    def verif_case(self, x, y):
+        """vérifie le type de case destination lors du déplacement"""
+        #à compléter, ou pas
+
+    def inst_relocate(self, new_pos):
+        """si besoin de changer instantanément la position du personnage"""
+        self.__position= new_pos
                 
     def afficherLab(self):
         print(self.__labDuPerso)
