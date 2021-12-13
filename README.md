@@ -34,12 +34,12 @@ Pour jouer il faut éxécuter le fichier _graph.py_
 ## MODIFIER LE NIVEAU
 
 Pour modifier le niveau il suffit de modifier le fichier _niveau_1.txt_ en gardant en tête que :
-	* La matrice doit être une matrice carrée
-	* 0 correspond au chemin
-	* 1 correspond au mur
-	* 2 correspond à la sortie
-	* 3 correspond au départ
-	* 4 correspond à un piège
+* La matrice doit être une matrice carrée
+* 0 correspond au chemin
+* 1 correspond au mur
+* 2 correspond à la sortie
+* 3 correspond au départ
+* 4 correspond à un piège
 
 
 ## DEBUG
