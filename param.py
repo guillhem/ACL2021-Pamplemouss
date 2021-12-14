@@ -5,7 +5,7 @@ Created on Mon Nov 22 06:12:45 2021
 @author: sabri
 """
 import pygame
-import superLab
+import Lab
 
 
 pygame.init()
@@ -19,7 +19,8 @@ title = "PAMPLEMOUSS"
 size = width, height = 660, 690
 speed = [1,1]
 black = 0, 0, 0
-black_t = 0, 0, 0, 150
+# black_t = 0, 0, 0, 150
+fond_c = 153,224,91
 
 pamplemou = 246, 67, 113   #f64371
 
@@ -29,7 +30,7 @@ rectScreen = screen.get_rect()
 pygame.display.set_caption(title)
 
 
-l = superLab.fich2lab("niveau_1.txt")
+l = Lab.fich2lab("niveau_1.txt")
 
 #%% MUSIQUE
 #musique de fond  
@@ -86,11 +87,18 @@ f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
 
 
+   # cases
 mur = pygame.image.load(chemin+"image_mur.png").convert_alpha()
 mur = pygame.transform.scale(mur, (taille_sprite, taille_sprite))
 
 piege = pygame.image.load(chemin+"image_piege.png").convert()
 piege = pygame.transform.scale(piege, (taille_sprite, taille_sprite))
+
+monstr = pygame.image.load(chemin+"image_monstre.png").convert_alpha()
+monstr = pygame.transform.scale(monstr, (taille_sprite, taille_sprite))
+
+tp = pygame.image.load(chemin+"image_tp.png").convert()
+tp = pygame.transform.scale(tp, (taille_sprite, taille_sprite))
 
 arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
 arrivee = pygame.transform.scale(arrivee, (taille_sprite, taille_sprite))
