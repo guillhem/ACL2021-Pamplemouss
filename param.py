@@ -5,25 +5,32 @@ Created on Mon Nov 22 06:12:45 2021
 @author: sabri
 """
 import pygame
+import Lab
+
 
 pygame.init()
 
 chemin = "images/"
 
-taille_sprite = 40
+taille_sprite = 30
 
 #  propriétés de la fenêtre
-title = "PAMPLEMOUU"
-size = width, height = 880, 880
+title = "PAMPLEMOUSS"
+size = width, height = 660, 690
 speed = [1,1]
 black = 0, 0, 0
-pamplemou = 246, 67, 113
+# black_t = 0, 0, 0, 150
+fond_c = 153,224,91
+
+pamplemou = 246, 67, 113   #f64371
 
 screen = pygame.display.set_mode(size)
 rectScreen = screen.get_rect()
 
 pygame.display.set_caption(title)
 
+
+l = Lab.fich2lab("niveau_1.txt")
 
 #%% MUSIQUE
 #musique de fond  
@@ -32,12 +39,19 @@ pygame.mixer.music.play(loops=-1) # se répète à l'infini
 
 
 #%% TEXTES
-police = pygame.font.Font("consolas.ttf",60)
+police_deb = pygame.font.Font("consolas.ttf",35)
+police = pygame.font.Font("consolas.ttf",50)
+police_ui = pygame.font.Font("consolas.ttf",20)
 
 # texte de début
-txt_debut = police.render("Appuyez sur espace",True,pamplemou,black)
-txt_debutrect = txt_debut.get_rect()
-txt_debutrect.center = rectScreen.center
+txt_debut = police_deb.render("Appuyez sur espace",True,pamplemou,black)
+txt_debut2 = police_deb.render("pour commencer une partie",True,pamplemou,black)
+
+txt_debutrect = txt_debut.get_rect(center=(330,275))
+txt_debutrect2 = txt_debut2.get_rect(center=(330,335))
+
+
+
 
 #texte de mort
 txt_mort = police.render("T'es mort dommaj",True,pamplemou,None)
@@ -48,6 +62,7 @@ txt_mortrect.center = rectScreen.center
 txt_vic = police.render("Niveau réussi ! GG bg",True,pamplemou,None)
 txt_vicrect = txt_vic.get_rect()
 txt_vicrect.center = rectScreen.center
+
 
 #%% Images
 
@@ -60,16 +75,36 @@ pamprect = pamp.get_rect()
 
 #icone joueur
 joueur = pygame.image.load(chemin+"joueur_ic.jpg")
-joueur = pygame.transform.scale(joueur, (40, 40))
+joueur = pygame.transform.scale(joueur, (taille_sprite, taille_sprite))
 j_rect = joueur.get_rect()
 
 #NIVEAU
 
     #fond 
 fond = pygame.image.load(chemin+"fond.png")
+fond = pygame.transform.scale(fond, size)
 f_rect = fond.get_rect()
 f_rect.center = rectScreen.center
 
-mur = pygame.image.load(chemin+"image_mur.png").convert()
+
+   # cases
+mur = pygame.image.load(chemin+"image_mur.png").convert_alpha()
+mur = pygame.transform.scale(mur, (taille_sprite, taille_sprite))
+
 piege = pygame.image.load(chemin+"image_piege.png").convert()
+piege = pygame.transform.scale(piege, (taille_sprite, taille_sprite))
+
+monstr = pygame.image.load(chemin+"image_monstre.png").convert_alpha()
+monstr = pygame.transform.scale(monstr, (taille_sprite, taille_sprite))
+
+tp = pygame.image.load(chemin+"image_tp.png").convert()
+tp = pygame.transform.scale(tp, (taille_sprite, taille_sprite))
+
 arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
+arrivee = pygame.transform.scale(arrivee, (taille_sprite, taille_sprite))
+
+
+direc = pygame.image.load(chemin+"direction.png").convert_alpha()
+direc = pygame.transform.scale(direc, (200, 200))
+direc_rect = direc.get_rect()
+direc_rect.bottomleft = rectScreen.bottomleft

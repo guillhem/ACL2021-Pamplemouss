@@ -7,8 +7,8 @@ class Monstre():
     def __init__(self, pos_init, sens_depl="vert", periode_deplacement=1):
         self.__pos= [1,2]   #initialisation de la position
         self.__pos= pos_init    #nouvelle position initiale
-        self.__sens_depl= sens_depl     #vert ou horiz
-        self.__per_depl= periode_deplacement    #période de déplacement du monstre en s
+        self.__sens_depl = sens_depl     #vert ou horiz
+        self.__per_depl = periode_deplacement    #période de déplacement du monstre en s
         #mise en place déplacement périodique monstre
         self.__loop = asyncio.get_event_loop()
         self.__loop.call_later(5, lambda: self.__task.cancel())
@@ -46,6 +46,7 @@ class Monstre():
     def kill(self):
         """mort du monstre"""
         self.__task.cancel()    #arrêt depl monstre
+        # return 0 
 
     def getPos(self):
         return(self.__pos)
