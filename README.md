@@ -29,7 +29,7 @@ Python 3 avec pygame et nummpy
 
 Le dossier immages, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
 
-Pour jouer il faut éxécuter le fichier _graph.py_
+Pour jouer il faut éxécuter le fichier _game.py_
 
 ## MODIFIER LE NIVEAU
 
