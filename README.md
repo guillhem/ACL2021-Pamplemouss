@@ -9,13 +9,16 @@ Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans u
 
 Python 3 avec pygame et numpy
 
+## INSTALLATION
+
+Le dossier images, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
+
 
 ## QUOI DE NEUF DANS LE SPRINT 2
 
 * Un nouvel écran d'acceuil
 * Les niveaux sont implémentés via fichiers textes (vous pouvez donc modifier le niveau cf. plus bas)
 * Un menu pause
-
 
 ## PARTICIPANTS DU PROJET
 
@@ -24,10 +27,6 @@ Python 3 avec pygame et numpy
 * CARAVEC Guilhem  https://github.com/guillhem
 * ALLOUCH Sabrina  https://github.com/cath-fmarie
 
-
-## INSTALLATION
-
-Le dossier images, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
 
 Pour jouer il faut éxécuter le fichier _game.py_
 
