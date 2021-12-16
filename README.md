@@ -5,6 +5,11 @@
 
 Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans un labyrinthe à la recherche du Chat SKIBIDI !!
 
+## LANGAGE ET MODULES A TELECHARGER POUR JOUER AU JEU
+
+Python 3 avec pygame et numpy
+
+
 ## QUOI DE NEUF DANS LE SPRINT 2
 
 * Un nouvel écran d'acceuil
@@ -20,14 +25,9 @@ Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans u
 * ALLOUCH Sabrina  https://github.com/cath-fmarie
 
 
-## LANGAGE ET MODULES UTILISES
-
-Python 3 avec pygame et nummpy
-
-
 ## INSTALLATION
 
-Le dossier immages, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
+Le dossier images, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
 
 Pour jouer il faut éxécuter le fichier _game.py_
 
