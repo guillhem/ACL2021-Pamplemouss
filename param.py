@@ -94,7 +94,7 @@ mur = pygame.transform.scale(mur, (taille_sprite, taille_sprite))
 piege = pygame.image.load(chemin+"image_piege.png").convert()
 piege = pygame.transform.scale(piege, (taille_sprite, taille_sprite))
 
-monstr = pygame.image.load(chemin+"image_monstre.png").convert_alpha()
+monstr = pygame.image.load(chemin+"couteau.png").convert_alpha()
 monstr = pygame.transform.scale(monstr, (taille_sprite, taille_sprite))
 
 tp = pygame.image.load(chemin+"image_tp.png").convert()
