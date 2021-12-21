@@ -3,7 +3,7 @@ import random
 
 class Monstre():
     def __init__(self, pos_init, labDuPerso, sens_depl="vert", periode_deplacement=1):
-        self.__pos= [1,2]   #initialisation de la position
+        #self.__pos= [1,2]   #initialisation de la position
         self.__pos= pos_init    #nouvelle position initiale
         self.__sens_depl= sens_depl     #vert ou horiz
         self.__per_depl= periode_deplacement    #période de déplacement du monstre en s
@@ -49,8 +49,7 @@ class Monstre():
                     self.__lab[pos0][pos1]=0
                     self.__pos = new_pos
                     self.__lab[new_pos[0],new_pos[1]]=6
-                    
-        print(self.__pos)
+                   
 
     def kill(self):
         """mort du monstre"""
