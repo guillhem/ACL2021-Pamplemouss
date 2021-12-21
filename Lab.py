@@ -80,7 +80,7 @@ class Lab():
         
 #%%
 
-def fich2lab(nomfich) :
+def fich2lab(nomfich) :   #Par Sabrina
     with open (nomfich,"r") as nv :
         txt = nv.readlines()
         lab = Lab(len(txt))
