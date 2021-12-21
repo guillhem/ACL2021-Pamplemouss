@@ -29,82 +29,48 @@ class Personnage():
         return(self.__etat)
     def get_win(self):
         return(self.__win)
-# =============================================================================
-#     def explicationsDeplacement(self):
-#         print("Pour vous déplacer, vous allez utiliser les touches q,s,z,d :\n \
-#               q pour vous délacer à gauche,\n \
-#               d pour vous délacer à droite,\n \
-#               s pour vous délacer en bas,\n \
-#               z pour vous délacer en haut.")
-# =============================================================================
+
+
+    def direct(self,i,j,posi,posj) :
+        
+        if self.__labDuPerso[i][j]==0: # si la case est vide
+            self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
+            self.__labDuPerso[i][j]=3
+            self.__position=[i,j] # on change son paramètre position
+            
+        elif self.__labDuPerso[i][j]==2:
+            self.__win=True
+            
+        elif self.__labDuPerso[i][j]==4:
+            self.__etat-=1
+        
+        elif self.__labDuPerso[i][j]==7:  # case PV
+            self.__etat+=1
+        # elif self.__labDuPerso[i][j]==5:
+        #     self.inst_relocate(self.__labDuPerso.getDestination())
+
+
+
+
 
     def deplacement(self,direction):
 
         i,j = self.__position
         
         if direction=="q": # gauche
-            if self.__labDuPerso[i][j-1]==0: # si la case est vide
-                self.__labDuPerso[i][j]=0 # le personnage se déplace dans le lab
-                self.__labDuPerso[i][j-1]=3
-                self.__position=[i,j-1] # on change son paramètre position
-                
-            elif self.__labDuPerso[i][j-1]==2:
-                self.__win=True
-                
-            elif self.__labDuPerso[i][j-1]==4:
-                self.__etat-=1
-                
-            elif self.__labDuPerso[i][j-1]==5:
-                self.inst_relocate(self.__labDuPerso.getDestination())
+            self.direct(i,j-1,i,j)
                 
                 
         if direction=="s": # bas
-            if self.__labDuPerso[i+1][j]==0:
-                self.__labDuPerso[i][j]=0
-                self.__labDuPerso[i+1][j]=3
-                self.__position=[i+1,j]
-                
-            elif self.__labDuPerso[i+1][j]==2:
-                self.__win=True
-                
-            elif self.__labDuPerso[i+1][j]==4:
-                self.__etat-=1
-                
-            elif self.__labDuPerso[i+1][j]==5:
-                self.inst_relocate(self.__labDuPerso.getDestination())
-                
+           self.direct(i+1 ,j,i,j)
                 
                 
         if direction=="d": # droite
-            if self.__labDuPerso[i][j+1]==0:
-                self.__labDuPerso[i][j]=0
-                self.__labDuPerso[i][j+1]=3
-                self.__position=[i,j+1]
-                
-            elif self.__labDuPerso[i][j+1]==2:
-                self.__win=True
-                
-            elif self.__labDuPerso[i][j+1]==4:
-                self.__etat-=1
-                
-            elif self.__labDuPerso[i][j+1]==5:
-                self.inst_relocate(name.getDestination())
+            self.direct(i,j+1,i,j)
                     
                 
         if direction=="z": # haut
-            if self.__labDuPerso[i-1][j]==0:
-                self.__labDuPerso[i][j]=0
-                self.__labDuPerso[i-1][j]=3
-                self.__position=[i-1,j]
-                
-            elif self.__labDuPerso[i-1][j]==2:
-                self.__win=True
-                
-            elif self.__labDuPerso[i-1][j]==4:
-                self.__etat-=1
-                
-            elif self.__labDuPerso[i-1][j]==5:   # case TP
-                self.inst_relocate(self.__labDuPerso.getDestination())     #pk labDuPerso
+            self.direct(i-1,j,i,j)
     
     
     
@@ -149,7 +115,7 @@ class Personnage():
     
     def reset(self) : 
         l = fich2lab("niveau_1.txt")
-        self.__init__(l,1)
+        self.__init__(l,PV)
         
     
 # =============================================================================
