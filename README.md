@@ -39,6 +39,7 @@ Pour modifier le niveau il suffit de modifier le fichier _niveau_1.txt_ en garda
 * 2 correspond à la sortie
 * 3 correspond au départ
 * 4 correspond à un piège
+* 7 correspond à une potion 1 UP
 
 
 ## DEBUG
