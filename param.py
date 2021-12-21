@@ -12,8 +12,11 @@ pygame.init()
 
 chemin = "images/"
 
+# param perso
+PV_max = 3
+nbVies = 1
+
 taille_sprite = 30
-PV=3
 
 #  propriétés de la fenêtre
 title = "PAMPLEMOUSS"
@@ -75,7 +78,7 @@ pamp = pygame.image.load(chemin+"pamlemousse.jpg")
 pamprect = pamp.get_rect()
 
 #icone joueur
-joueur = pygame.image.load(chemin+"joueur_ic.jpg")
+joueur = pygame.image.load(chemin+"joueur_ic.png")
 joueur = pygame.transform.scale(joueur, (taille_sprite, taille_sprite))
 j_rect = joueur.get_rect()
 

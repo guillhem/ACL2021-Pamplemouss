@@ -9,7 +9,8 @@
 # 3 pour la position du joueur
 # 4 pour les pieges
 # 5 pour les cases de téléportation
-# 6 pour les cases monstres
+# 6 pour les monstres
+# 7 pour les potions
 
 # on partirait sur des lab de 30x30
 

@@ -8,6 +8,7 @@ Created on Sun Nov 21 21:21:15 2021
 import sys, time, pygame as py
 from Personnage2 import *
 from menu_pause import pause
+from Monstre import *
 
 
 py.init()
@@ -16,17 +17,17 @@ py.init()
 
 #%%
 
-p = Personnage(l,PV)
+p = Personnage(l,PV_max)
+
 continuer = 1
 
 
 while continuer : #boucle principale
     
+    
     continuer_jeu = 1
     continuer_accueil = 1
     mute = 0  #intéret booleen
-    
-    
  #%%   
     #boucle d'écran d'accueil
     if not mute :
@@ -92,9 +93,8 @@ while continuer : #boucle principale
 #%%
     # Boucle de jeu
 
-
-
     while continuer_jeu :
+        
         
         for event in py.event.get():
 
@@ -122,9 +122,7 @@ while continuer : #boucle principale
                 if touche == "escape" :
                     continuer_jeu = pause()
                     
-                    
                 p.deplacement(touche)
-                
                 
                 if p.get_win() :   #Le joueur est sorti du labyrinthe
                     screen.blit(fond,f_rect)
@@ -143,27 +141,27 @@ while continuer : #boucle principale
                     
                     continuer_jeu = 0
             
-            #txt ui      
-            ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
-            m = police_ui.render("Pause : ECHAP     Mute : M",True,pamplemou,None)
-            ui_rect = ui.get_rect()
-            ui_rect.bottomleft = (5,685)
-            m_rect = m.get_rect()
-            m_rect.bottomright = (600,685)
-            
-            #rafraichit lab
-            screen.fill(fond_c)
-            # screen.blit(fond,f_rect) #changer en screen.fill partout
-            screen.blit(ui,ui_rect)
-            screen.blit(m,m_rect)
+        #txt ui      
+        ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
+        m = police_ui.render("Pause : ECHAP     Mute : M",True,pamplemou,None)
+        ui_rect = ui.get_rect()
+        ui_rect.bottomleft = (5,685)
+        m_rect = m.get_rect()
+        m_rect.bottomright = (600,685)
+        
+        #rafraichit lab
+        screen.fill(fond_c)
+        # screen.blit(fond,f_rect) #changer en screen.fill partout
+        screen.blit(ui,ui_rect)
+        screen.blit(m,m_rect)
+        
+        p.incrementeCompteur()
+        p.checkCompteur()
+        
+        p.afficherLab()
+        time.sleep(0.01)
 
-            p.incrementeCompteur()
-            p.checkCompteur()
-
-            p.afficherLab()
-            
-            time.sleep(0.01)
-            py.display.flip()
+        py.display.flip()
                     
         
     p.reset()
