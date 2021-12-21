@@ -16,7 +16,7 @@ py.init()
 
 #%%
 
-p = Personnage(l,1)
+p = Personnage(l,PV_max)
 continuer = 1
 
 
@@ -109,7 +109,7 @@ while continuer : #boucle principale
                 # mute
                 if touche == "m" :
                     if mute :
-                        py.mixer.music.set_volume(0.4)
+                        py.mixer.music.set_volume(0.1)
                         mute = 0
                     else :
                         py.mixer.music.set_volume(0)

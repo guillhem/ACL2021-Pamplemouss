@@ -31,21 +31,27 @@ class Personnage():
         return(self.__win)
 
 
-    def direct(self,i,j,posi,posj) :
+    def direct(self,i,j,posi,posj) :   #posi, posj position actuelle du héros
         
         if self.__labDuPerso[i][j]==0: # si la case est vide
             self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
             self.__labDuPerso[i][j]=3
             self.__position=[i,j] # on change son paramètre position
             
-        elif self.__labDuPerso[i][j]==2:
+        elif self.__labDuPerso[i][j]==2 :
             self.__win=True
             
-        elif self.__labDuPerso[i][j]==4:
+        elif self.__labDuPerso[i][j]==4 :
             self.__etat-=1
         
-        elif self.__labDuPerso[i][j]==7:  # case PV
-            self.__etat+=1
+        elif self.__labDuPerso[i][j]==7 :  # case PV
+            if self.__etat < PV_max :
+                self.__etat+=1
+                self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
+                self.__labDuPerso[i][j]=3 # potion utilisée
+                self.__position=[i,j]
+            
+                
         # elif self.__labDuPerso[i][j]==5:
         #     self.inst_relocate(self.__labDuPerso.getDestination())
 
@@ -62,7 +68,7 @@ class Personnage():
                 
                 
         if direction=="s": # bas
-           self.direct(i+1 ,j,i,j)
+           self.direct(i+1,j,i,j)
                 
                 
         if direction=="d": # droite
@@ -108,6 +114,8 @@ class Personnage():
                     screen.blit(tp,(x,y))
                 if L[j][i] == 6 :
                     screen.blit(monstr,(x,y))
+                if L[j][i] == 7 :
+                    screen.blit(pot,(x,y))
                     
                     
                     
@@ -115,26 +123,5 @@ class Personnage():
     
     def reset(self) : 
         l = fich2lab("niveau_1.txt")
-        self.__init__(l,PV)
-        
-    
-# =============================================================================
-#     def play(self):
-#         self.explicationsDeplacement()
-#         
-#         self.afficherLab()
-#         
-#         while self.etat>0 and self.win==False:
-#             self.deplacement()
-#             self.afficherLab()
-#         
-#         if self.win==True:
-#             print(" \n Niveau réussi ! GG bg ")
-#             
-#         if self.etat==0 :
-#             print("\n T'es mort dommaj")
-#             
-#         self.reset()    
-#             
-# =============================================================================
+        self.__init__(l,PV_max)
             
