@@ -47,6 +47,7 @@ class Personnage():
         elif self.__labDuPerso[i][j]==7 :  # case PV
             if self.__etat < PV_max :
                 self.__etat+=1
+                # oui ça sert à rien mais j'aime bien
                 self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
                 self.__labDuPerso[i][j]=3 # potion utilisée
                 self.__position=[i,j]
