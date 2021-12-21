@@ -16,7 +16,7 @@ py.init()
 
 #%%
 
-p = Personnage(l,PV_max)
+p = Personnage(l,PV)
 continuer = 1
 
 
@@ -25,6 +25,8 @@ while continuer : #boucle principale
     continuer_jeu = 1
     continuer_accueil = 1
     mute = 0  #intéret booleen
+    
+    
  #%%   
     #boucle d'écran d'accueil
     if not mute :
@@ -90,9 +92,9 @@ while continuer : #boucle principale
 #%%
     # Boucle de jeu
 
+
+
     while continuer_jeu :
-        
-        py.time.Clock().tick(30)
         
         for event in py.event.get():
 
@@ -122,6 +124,7 @@ while continuer : #boucle principale
                     
                     
                 p.deplacement(touche)
+                
                 
                 if p.get_win() :   #Le joueur est sorti du labyrinthe
                     screen.blit(fond,f_rect)
@@ -154,7 +157,11 @@ while continuer : #boucle principale
             screen.blit(ui,ui_rect)
             screen.blit(m,m_rect)
 
+            p.incrementeCompteur()
+            p.checkCompteur()
+
             p.afficherLab()
+            
             time.sleep(0.01)
             py.display.flip()
                     

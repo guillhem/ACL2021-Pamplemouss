@@ -20,8 +20,9 @@ class Personnage():
         self.__etat=nbVies # nombre de vies
         self.__win=False # = True quand le personnage a atteint la sortie
         self.__labDuPerso=labDuPerso.getMatrice()
-        # self.__monstres = {}
-        # self.__monstres["monstre_1"] = Monstre([5,7], "horiz", periode_deplacement=1)
+        self.__compteur=0
+        self.__monstres = {}
+        self.__monstres["monstre_1"] = Monstre([5,7], "horiz", periode_deplacement=1)
         
         
         
@@ -30,6 +31,19 @@ class Personnage():
     def get_win(self):
         return(self.__win)
 
+    def get_lab(self):
+        return(self.__labDuPerso)
+
+    def set_changement(self,i,j,new): #non utilisé
+        self.__labDuPerso[i][j]=new
+        
+    def incrementeCompteur(self):
+        self.__compteur+=1
+    
+    def checkCompteur(self):
+        if self.__compteur//50 ==0:
+            for monstre in self.__monstres.values():
+                monstre.order()
 
     def direct(self,i,j,posi,posj) :   #posi, posj position actuelle du héros
         

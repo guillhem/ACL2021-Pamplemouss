@@ -13,6 +13,7 @@ pygame.init()
 chemin = "images/"
 
 taille_sprite = 30
+PV=3
 
 #  propriétés de la fenêtre
 title = "PAMPLEMOUSS"
