@@ -100,6 +100,9 @@ monstr = pygame.transform.scale(monstr, (taille_sprite, taille_sprite))
 tp = pygame.image.load(chemin+"image_tp.png").convert()
 tp = pygame.transform.scale(tp, (taille_sprite, taille_sprite))
 
+pot = pygame.image.load(chemin+"potion.png").convert_alpha()
+pot = pygame.transform.scale(pot, (taille_sprite, taille_sprite))
+
 arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
 arrivee = pygame.transform.scale(arrivee, (taille_sprite, taille_sprite))
 
