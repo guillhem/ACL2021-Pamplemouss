@@ -58,7 +58,10 @@ class Personnage():
         elif self.__labDuPerso[i][j]==2 :
             self.__win=True
             
-        elif self.__labDuPerso[i][j]==4 or self.__labDuPerso[i][j] == 6 :
+        elif self.__labDuPerso[i][j]==4 :
+            self.__etat-=PV_max
+            
+        if self.__labDuPerso[i][j] == 6 :
             self.__etat-=1
         
         elif self.__labDuPerso[i][j]==7 :  # case PV
