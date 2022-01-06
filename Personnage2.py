@@ -158,4 +158,5 @@ class Personnage():
         l = fich2lab("niveau_1.txt")
         self.__init__(l,PV_max)
         self.__compteur = 0
+        self.initMonstres()
             
