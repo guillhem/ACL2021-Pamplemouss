@@ -34,7 +34,7 @@ Le dossier images, le fichier de police et le son sont necéssaires au bon fonct
 * ALLOUCH Sabrina  https://github.com/cath-fmarie
 
 
-Pour jouer il faut éxécuter le fichier _game.py_
+Pour jouer il faut exécuter le fichier _game.py_
 
 ## MODIFIER LE NIVEAU
 
