@@ -5,20 +5,26 @@
 
 Le projet est un petit jeu dans lequel vous incarnez un Pamplemouss perdu dans un labyrinthe à la recherche du Chat SKIBIDI !!
 
+## QUOI DE NEUF DANS LE SPRINT 3
+
+* Des monstres enfin bien fonctionnels !
+* il y en a plusieurs sortes différentes aussi (incroyable !)
+* Des potions pour récupérer de la vie pour avoir une petite aide pour confronter ces monstres
+
 ## LANGAGE ET MODULES A TELECHARGER POUR JOUER AU JEU
 
 Python 3 avec pygame et numpy
 
+pour installer numpy : 
+https://numpy.org/install/
+
+pour installer pygame :
+https://cs.hofstra.edu/docs/pages/guides/InstallingPygame.html
+
 ## INSTALLATION
 
-Le dossier images, le fichier de police et le son sont nécéssaires au bon fonctionnement du programme.
+Le dossier images, le fichier de police et le son sont necéssaires au bon fonctionnement du programme.
 
-
-## QUOI DE NEUF DANS LE SPRINT 2
-
-* Un nouvel écran d'acceuil
-* Les niveaux sont implémentés via fichiers textes (vous pouvez donc modifier le niveau cf. plus bas)
-* Un menu pause
 
 ## PARTICIPANTS DU PROJET
 
@@ -39,6 +45,7 @@ Pour modifier le niveau il suffit de modifier le fichier _niveau_1.txt_ en garda
 * 2 correspond à la sortie
 * 3 correspond au départ
 * 4 correspond à un piège
+* 6 pour les positions initiales des monstres
 * 7 correspond à une potion 1 UP
 
 
