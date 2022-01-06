@@ -8,7 +8,7 @@ Created on Sun Nov 21 21:21:15 2021
 import sys, time, pygame as py
 from Personnage2 import *
 from menu_pause import pause
-from Monstre import *
+from Monstre2 import *
 
 
 py.init()
@@ -18,6 +18,8 @@ py.init()
 #%%
 
 p = Personnage(l,PV_max)
+p.initMonstres()
+
 
 continuer = 1
 
@@ -124,22 +126,20 @@ while continuer : #boucle principale
                     
                 p.deplacement(touche)
                 
-                if p.get_win() :   #Le joueur est sorti du labyrinthe
-                    screen.blit(fond,f_rect)
-                    screen.blit(txt_vic,txt_vicrect)
-                    py.display.flip() 
-                    time.sleep(3)
-                    
-                    continuer_jeu = 0
-                    
-                    
-                if p.get_etat() == 0 :     #Le joueur meurt
-                    screen.blit(fond,f_rect)   #changer en screen.fill partout
-                    screen.blit(txt_mort,txt_mortrect)
-                    py.display.flip()
-                    time.sleep(3)
-                    
-                    continuer_jeu = 0
+            if p.get_win() :   #Le joueur est sorti du labyrinthe
+                screen.blit(fond,f_rect)
+                screen.blit(txt_vic,txt_vicrect)
+                py.display.flip() 
+                time.sleep(1)                
+                continuer_jeu = 0
+                
+                
+            if p.get_etat() == 0 :     #Le joueur meurt
+                screen.blit(fond,f_rect)   #changer en screen.fill partout
+                screen.blit(txt_mort,txt_mortrect)
+                py.display.flip()
+                time.sleep(1)
+                continuer_jeu = 0
             
         #txt ui      
         ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
@@ -155,8 +155,9 @@ while continuer : #boucle principale
         screen.blit(ui,ui_rect)
         screen.blit(m,m_rect)
         
-        p.incrementeCompteur()
+        p.incrementeCompteur() # pour les monstres
         p.checkCompteur()
+        p.monstreTouche()
         
         p.afficherLab()
         time.sleep(0.01)

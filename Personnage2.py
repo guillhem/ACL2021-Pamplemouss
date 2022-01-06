@@ -6,7 +6,7 @@
 
 from Lab import *
 from param import *
-from Monstre import *
+from Monstre2 import *
 from TP import *
 
 
@@ -22,9 +22,9 @@ class Personnage():
         self.__labDuPerso=labDuPerso.getMatrice()
         self.__compteur = 0
         self.__monstres = {}
-        i,j = int(np.where(self.__labDuPerso==6)[0]),int(np.where(self.__labDuPerso==6)[1])
-        self.__monstres["monstre_1"] = Monstre([i,j], self.__labDuPerso, "horiz", periode_deplacement=1)
-        
+       # i,j = int(np.where(self.__labDuPerso==6)[0]),int(np.where(self.__labDuPerso==6)[1])
+       # self.__monstres["monstre_1"] = Monstre([i,j], self.__labDuPerso, "horiz", periode_deplacement=1)
+       
         
         
     def get_etat(self) :
@@ -33,10 +33,26 @@ class Personnage():
         return(self.__win)
     def get_lab(self) :
         return(self.__labDuPerso)
-    
+    def get_monstres(self):
+        return(self.__monstres)
 
+    def initMonstres(self): # pour initialiser le dico monstres
+        n=np.size(self.__labDuPerso[0])    
+        for i in range(n):
+            for j in range(n):
+                if self.__labDuPerso[i,j]==8:
+                    self.__monstres[str(i)+" "+str(j)]= Monstre([i,j], self.__labDuPerso,8)
+                if self.__labDuPerso[i,j]==9:
+                    self.__monstres[str(i)+" "+str(j)]= Monstre([i,j], self.__labDuPerso,9)
+            
+                    #nom du monstre dans le dico "i j" sa position de départ
+                
+        
+        
+        
     def set_changement(self,i,j,new): #non utilisé
         self.__labDuPerso[i][j]=new
+
 
     def incrementeCompteur(self):
         self.__compteur+=1
@@ -58,22 +74,16 @@ class Personnage():
         elif self.__labDuPerso[i][j]==2 :
             self.__win=True
             
-        elif self.__labDuPerso[i][j]==4 :
-            self.__etat-=PV_max
-            
-        if self.__labDuPerso[i][j] == 6 :
+        elif self.__labDuPerso[i][j]==4 or self.__labDuPerso[i][j] >6 :
             self.__etat-=1
         
-        elif self.__labDuPerso[i][j]==7 :  # case PV
+        elif self.__labDuPerso[i][j]==6 :  # case PV
             if self.__etat < PV_max :
                 self.__etat+=1
-                self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
-                self.__labDuPerso[i][j]=3 # potion utilisée
-                self.__position=[i,j]
+            self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
+            self.__labDuPerso[i][j]=3 # potion utilisée
+            self.__position=[i,j]
             
-                
-        # elif self.__labDuPerso[i][j]==6:
-        #     self.inst_relocate(self.__labDuPerso.getDestination())
 
 
 
@@ -96,7 +106,11 @@ class Personnage():
         if direction=="z": # haut
             self.direct(i-1,j,i,j)
     
-    
+    def monstreTouche(self): #pour que le monstre fasse perdre une vie au perso si il va sur la case où est le personnage
+        for monstre in self.__monstres.values():
+            if monstre.getTouchePerso()==True:
+                self.__etat-=1
+                monstre.reintTouchePerso()
     
     
     def verif_case(self, x, y):
@@ -131,9 +145,10 @@ class Personnage():
                 if L[j][i] == 5 :
                     screen.blit(tp,(x,y))
                 if L[j][i] == 6 :
-                    screen.blit(monstr,(x,y))
-                if L[j][i] == 7 :
                     screen.blit(pot,(x,y))
+                if L[j][i] > 6 :
+                    screen.blit(monstr,(x,y))
+                
                     
                     
                     
