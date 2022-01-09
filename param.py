@@ -14,9 +14,11 @@ chemin = "images/"
 
 # param perso
 PV_max = 3
-nbVies = 1
 
-taille_sprite = 30
+
+liste_lvl = ["niveau_1.txt", "niveau_2.txt"]
+N = len(liste_lvl)
+
 
 #  propriétés de la fenêtre
 title = "PAMPLEMOUSS"
@@ -33,9 +35,11 @@ rectScreen = screen.get_rect()
 
 pygame.display.set_caption(title)
 
+taille_sprite = 30
 
-l = Lab.fich2lab("niveau_1.txt")
+toucheq = ["z","q","s","d"]
 
+touchef = ["k_UP","K_LEFT","K_DOWN","K_RIGHT"]
 #%% MUSIQUE
 #musique de fond  
 pygame.mixer.music.load("KIBI.mp3")

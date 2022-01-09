@@ -74,6 +74,7 @@ class Monstre():
                 elif self.__lab[new_pos[0]][new_pos[1]] == 3 :
                      self.__touchePersonnage=True
 
+    
     def getTouchePerso(self):
         return self.__touchePersonnage
     

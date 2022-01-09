@@ -86,7 +86,7 @@ def fich2lab(nomfich) :   #Par Sabrina
         txt = nv.readlines()
         lab = Lab(len(txt))
         
-        # on crée une matrice en concatenat les ligne du txt 
+        # on crée une matrice en concatenant les ligne du txt 
         # et on l'attribue au lab
         m = np.zeros((1,22))
         
