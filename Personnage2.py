@@ -89,12 +89,7 @@ class Personnage():
                 mi,mj = monstre.split(' ')
                 if (mi == str(i) or mj == str(j)) and self.__monstres[monstre].getTouchePerso() == False :
                     self.__etat -= 1
-                # elif monstre[2] == str(j) :
-                #     print("kpjufjvuyhoj,,mmkllhhggyhbvvvvvhvhvvv",i,j)
-                #     M = monstre
-                #     print(M) 
-                #     if self.__monstres[M].getTouchePerso() == False :
-                #         self.__etat -= 1
+
 
 
 
