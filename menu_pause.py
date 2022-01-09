@@ -56,11 +56,11 @@ def pause() :
                     continuer_pause = 0
                     return 1,1
                 
-                if bout_main.collidepoint(pos) : #quit
+                if bout_main.collidepoint(pos) : #acceuil
                     continuer_pause = 0
                     return 0,1
                 
-                if bout_quit.collidepoint(pos) :
+                if bout_quit.collidepoint(pos) : #quit
                     continuer_pause = 0
                     py.display.quit()
                     py.quit()
