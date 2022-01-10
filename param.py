@@ -14,11 +14,10 @@ chemin = "images/"
 
 # param perso
 PV_max = 3
+nbVies = 1
+duree_splash_degats= 8
 
-
-liste_lvl = ["niveau_1.txt", "niveau_2.txt"]
-N = len(liste_lvl)
-
+taille_sprite = 30
 
 #  propriétés de la fenêtre
 title = "PAMPLEMOUSS"
@@ -35,11 +34,9 @@ rectScreen = screen.get_rect()
 
 pygame.display.set_caption(title)
 
-taille_sprite = 30
 
-toucheq = ["z","q","s","d"]
+l = Lab.fich2lab("niveau_1.txt")
 
-touchef = ["k_UP","K_LEFT","K_DOWN","K_RIGHT"]
 #%% MUSIQUE
 #musique de fond  
 pygame.mixer.music.load("KIBI.mp3")
@@ -85,6 +82,29 @@ pamprect = pamp.get_rect()
 joueur = pygame.image.load(chemin+"joueur_ic.png")
 joueur = pygame.transform.scale(joueur, (taille_sprite, taille_sprite))
 j_rect = joueur.get_rect()
+
+#icone PV
+icone_PV1 = pygame.image.load(chemin+"icone_PV.jpg")
+icone_PV1 = pygame.transform.scale(icone_PV1, (taille_sprite, taille_sprite))
+PV1_rect = icone_PV1.get_rect()
+icone_PV2 = pygame.image.load(chemin+"icone_PV.jpg")
+icone_PV2 = pygame.transform.scale(icone_PV2, (taille_sprite, taille_sprite))
+PV2_rect = icone_PV2.get_rect()
+icone_PV3 = pygame.image.load(chemin+"icone_PV.jpg")
+icone_PV3 = pygame.transform.scale(icone_PV3, (taille_sprite, taille_sprite))
+PV3_rect = icone_PV3.get_rect()
+icone_PV4 = pygame.image.load(chemin+"icone_PV.jpg")
+icone_PV4 = pygame.transform.scale(icone_PV4, (taille_sprite, taille_sprite))
+PV4_rect = icone_PV4.get_rect()
+icone_PV5 = pygame.image.load(chemin+"icone_PV.jpg")
+icone_PV5 = pygame.transform.scale(icone_PV5, (taille_sprite, taille_sprite))
+PV5_rect = icone_PV5.get_rect()
+
+#pop up dégâts
+dmg = pygame.image.load(chemin+"juice.png")
+dmg = pygame.transform.scale(dmg, (taille_sprite, taille_sprite))
+dmg_rect = dmg.get_rect()
+
 
 #NIVEAU
 
