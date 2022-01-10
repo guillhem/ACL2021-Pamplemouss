@@ -126,20 +126,28 @@ while continuer : #boucle principale
                     
                 p.deplacement(touche)
                 
-            if p.get_win() :   #Le joueur est sorti du labyrinthe
-                screen.blit(fond,f_rect)
-                screen.blit(txt_vic,txt_vicrect)
-                py.display.flip() 
-                time.sleep(1)                
-                continuer_jeu = 0
+            if p.get_win() :   #Le joueur est sorti du niveau
+            screen.blit(fond,f_rect)
+            screen.blit(txt_vic,txt_vicrect)
+            py.display.flip() 
+            time.sleep(1)  
+            if lvl < N-1 : #on passe au niveau suivant
+                lvl += 1
+                p.reset(liste_lvl[lvl])
                 
-                
-            if p.get_etat() == 0 :     #Le joueur meurt
-                screen.blit(fond,f_rect)   #changer en screen.fill partout
-                screen.blit(txt_mort,txt_mortrect)
-                py.display.flip()
-                time.sleep(1)
-                continuer_jeu = 0
+            elif lvl == N-1 :   #dernier lvl
+                lvl = 0
+                continuer_jeu = 0 #LE JOUEUR A FINI TOUS LES NIVEAUX
+            
+            
+            
+        if p.get_etat() == 0 :     #Le joueur meurt
+            screen.blit(fond,f_rect)   #changer en screen.fill partout?
+            screen.blit(txt_mort,txt_mortrect)
+            py.display.flip()
+            time.sleep(1)
+            if lvl < N :  #on recommence le niveau
+                p.reset(liste_lvl[lvl])
             
             
         #txt ui      
@@ -149,6 +157,10 @@ while continuer : #boucle principale
         PV3_rect.bottomleft = (70, 690)
         PV4_rect.bottomleft = (80, 690)
         PV5_rect.bottomleft = (90, 690)
+        
+        
+        ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
+        m = police_ui.render("Niveau "+str(lvl+1)+"       Pause : ECHAP   Mute : M",True,pamplemou,None)
         m = police_ui.render("Pause : ECHAP     Mute : M",True,pamplemou,None)
         ui_rect = ui.get_rect()
         ui_rect.bottomleft = (5,685)
