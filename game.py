@@ -84,9 +84,14 @@ while continuer : #boucle principale
         py.display.flip() 
 
             
-    # affichage du niveau   
-      
-    # py.mixer.music.set_volume(0.2)
+    # affichage du niveau 1 et initialisation du jeu
+    lvl = 0
+    l = fich2lab("niveau_1.txt")
+    p = Personnage(l,PV_max)
+    p.initMonstres()
+    
+    if not mute :
+        py.mixer.music.set_volume(0.2)
      
     screen.blit(fond,f_rect)
     p.afficherLab()
