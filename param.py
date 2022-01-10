@@ -14,8 +14,11 @@ chemin = "images/"
 
 # param perso
 PV_max = 3
-nbVies = 1
 duree_splash_degats= 8
+
+
+liste_lvl = ["niveau_1.txt", "niveau_2.txt"]
+N = len(liste_lvl)
 
 taille_sprite = 30
 
