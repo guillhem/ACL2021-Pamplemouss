@@ -11,6 +11,7 @@
 # 5 pour les cases de téléportation
 # 6 pour les potions
 # 7,8,9 pour les monstres
+#10 pour les attaques
 
 
 # on partirait sur des lab de 30x30
