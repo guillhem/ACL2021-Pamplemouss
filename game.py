@@ -84,9 +84,14 @@ while continuer : #boucle principale
         py.display.flip() 
 
             
-    # affichage du niveau   
-      
-    # py.mixer.music.set_volume(0.2)
+    # affichage du niveau 1 et initialisation du jeu
+    lvl = 0
+    l = fich2lab(liste_lvl[0])
+    p = Personnage(l,PV_max)
+    p.initMonstres()
+    
+    if not mute :
+        py.mixer.music.set_volume(0.2)
      
     screen.blit(fond,f_rect)
     p.afficherLab()
@@ -122,24 +127,32 @@ while continuer : #boucle principale
                 
                 # pause
                 if touche == "escape" :
-                    continuer_jeu = pause()
+                    continuer_jeu, continuer = pause()
                     
                 p.deplacement(touche)
                 
-            if p.get_win() :   #Le joueur est sorti du labyrinthe
+            if p.get_win() :   #Le joueur est sorti du niveau
                 screen.blit(fond,f_rect)
                 screen.blit(txt_vic,txt_vicrect)
                 py.display.flip() 
-                time.sleep(1)                
-                continuer_jeu = 0
-                
-                
+                time.sleep(1)  
+                if lvl < N-1 : #on passe au niveau suivant
+                    lvl += 1
+                    p.reset(liste_lvl[lvl])
+                    
+                elif lvl == N-1 :   #dernier lvl
+                    lvl = 0
+                    continuer_jeu = 0 #LE JOUEUR A FINI TOUS LES NIVEAUX
+            
+            
+            
             if p.get_etat() == 0 :     #Le joueur meurt
-                screen.blit(fond,f_rect)   #changer en screen.fill partout
+                screen.blit(fond,f_rect)   #changer en screen.fill partout?
                 screen.blit(txt_mort,txt_mortrect)
                 py.display.flip()
                 time.sleep(1)
-                continuer_jeu = 0
+                if lvl < N :  #on recommence le niveau
+                    p.reset(liste_lvl[lvl])
             
             
         #txt ui      
@@ -149,6 +162,10 @@ while continuer : #boucle principale
         PV3_rect.bottomleft = (70, 690)
         PV4_rect.bottomleft = (80, 690)
         PV5_rect.bottomleft = (90, 690)
+        
+        
+        ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
+        m = police_ui.render("Niveau "+str(lvl+1)+"       Pause : ECHAP   Mute : M",True,pamplemou,None)
         m = police_ui.render("Pause : ECHAP     Mute : M",True,pamplemou,None)
         ui_rect = ui.get_rect()
         ui_rect.bottomleft = (5,685)
@@ -182,7 +199,7 @@ while continuer : #boucle principale
         py.display.flip()
                     
         
-    p.reset()
+    p.reset(liste_lvl[0])
         
                     
 
