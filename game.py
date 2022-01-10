@@ -9,6 +9,7 @@ import sys, time, pygame as py
 from Personnage2 import *
 from menu_pause import pause
 from Monstre2 import *
+from Lab import fich2lab
 
 
 py.init()
@@ -85,7 +86,7 @@ while continuer : #boucle principale
        
     # affichage du niveau 1 et initialisation du jeu
     lvl = 0
-    l = Lab.fich2lab("niveau_1.txt")
+    l = fich2lab("niveau_1.txt")
     p = Personnage(l,PV_max)
     p.initMonstres()
     
@@ -101,7 +102,6 @@ while continuer : #boucle principale
     
     while continuer_jeu :
         
-        p.monstreTouche()
         for event in py.event.get():
 
             if event.type == py.QUIT :
@@ -147,7 +147,7 @@ while continuer : #boucle principale
             
             
             
-        if p.get_etat() <= 0 :     #Le joueur meurt
+        if p.get_etat() == 0 :     #Le joueur meurt
             screen.blit(fond,f_rect)   #changer en screen.fill partout?
             screen.blit(txt_mort,txt_mortrect)
             py.display.flip()
@@ -157,7 +157,7 @@ while continuer : #boucle principale
             
         #txt ui      
         ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
-        m = police_ui.render("Niveau "+str(lvl)+"       Pause : ECHAP   Mute : M",True,pamplemou,None)
+        m = police_ui.render("Niveau "+str(lvl+1)+"       Pause : ECHAP   Mute : M",True,pamplemou,None)
         ui_rect = ui.get_rect()
         ui_rect.bottomleft = (5,685)
         m_rect = m.get_rect()

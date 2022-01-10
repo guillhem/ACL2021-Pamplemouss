@@ -41,9 +41,13 @@ txt_bou_quit_rect = txt_bou_quit.get_rect(center=bout_quit.center)
 
 
 
+
+
 def pause() :
     continuer_pause = 1
-
+    select = 0
+    liste = [(1,1), (0,1), (0,0)] 
+    
     while continuer_pause :
         
         for event in py.event.get() :
@@ -51,12 +55,12 @@ def pause() :
             if event.type == py.MOUSEBUTTONDOWN and event.button == 1 :
                 
                 pos = mx,my = py.mouse.get_pos()
-                
+
                 if bout_res.collidepoint(pos) :  #resume
                     continuer_pause = 0
                     return 1,1
                 
-                if bout_main.collidepoint(pos) : #acceuil
+                if bout_main.collidepoint(pos) : #main
                     continuer_pause = 0
                     return 0,1
                 
@@ -66,20 +70,38 @@ def pause() :
                     py.quit()
                     sys.exit()
                     return 0,0
+                
+            
+            
+            elif event.type == py.KEYDOWN : 
+                
+                if event.key == py.K_DOWN or event.key == py.K_s :
+                    select = (select + 1) %3
                     
+                elif event.key == py.K_UP or event.key == py.K_z :
+                    select = (select - 1) %3
+                    
+                elif event.key == py.K_RETURN :
+                    if select == 2 :
+                        continuer_pause = 0
+                        py.display.quit()
+                        py.quit()
+                        sys.exit()
+                    return liste[select]
+                
                 
         
-        
-        
+        cadre = py.Rect((260,200 +120*select),size_b)
         py.draw.rect(p.screen,p.black,fen_p)
         py.draw.rect(p.screen,p.pamplemou,bout_res)
         py.draw.rect(p.screen,p.pamplemou,bout_quit)
         py.draw.rect(p.screen,p.pamplemou,bout_main)
+        py.draw.rect(p.screen,p.fond_c,cadre, width = 8)
         
         p.screen.blit(txt_bou_res,txt_bou_res_rect)
         p.screen.blit(txt_bou_quit,txt_bou_quit_rect)
         p.screen.blit(txt_bou_main,txt_bou_main_rect)
-        
+        # p.screen.blit(cadre)
         p.screen.blit(title,title_rect)
         py.display.update()
         
