@@ -86,7 +86,7 @@ while continuer : #boucle principale
             
     # affichage du niveau 1 et initialisation du jeu
     lvl = 0
-    l = fich2lab(liste_lvl[0])
+    l = fich2lab(liste_lvl[lvl])
     p = Personnage(l,PV_max)
     p.initMonstres()
     
@@ -132,21 +132,31 @@ while continuer : #boucle principale
                 p.deplacement(touche)
                 
             if p.get_win() :   #Le joueur est sorti du niveau
-                screen.blit(fond,f_rect)
-                screen.blit(txt_vic,txt_vicrect)
-                py.display.flip() 
-                time.sleep(1)  
-                if lvl < N-1 : #on passe au niveau suivant
+                
+                if lvl < (N-1) : #on passe au niveau suivant
+                    screen.blit(fond,f_rect)
+                    screen.blit(txt_vic,txt_vicrect)
+                    print('esgf',lvl)
+                    py.display.flip() 
+                    time.sleep(1)  
                     lvl += 1
                     p.reset(liste_lvl[lvl])
                     
                 elif lvl == N-1 :   #dernier lvl
-                    lvl = 0
+                    
+                    screen.blit(fond,f_rect)
+                    screen.blit(txt_sup_vic,txt_sup_vicrect)
+                    screen.blit(skib,skib_rect)
+                    print('fuuuuuu',lvl)
+                    py.display.flip() 
+                    time.sleep(1)  
+                    
                     continuer_jeu = 0 #LE JOUEUR A FINI TOUS LES NIVEAUX
+                    # lvl = 0
             
             
             
-            if p.get_etat() == 0 :     #Le joueur meurt
+            if p.get_etat() <= 0 :     #Le joueur meurt
                 screen.blit(fond,f_rect)   #changer en screen.fill partout?
                 screen.blit(txt_mort,txt_mortrect)
                 py.display.flip()
@@ -199,7 +209,7 @@ while continuer : #boucle principale
         py.display.flip()
                     
         
-    p.reset(liste_lvl[0])
+    p.reset(liste_lvl[lvl])
         
                     
 
