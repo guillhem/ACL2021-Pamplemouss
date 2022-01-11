@@ -174,7 +174,6 @@ while continuer : #boucle principale
         
         ui = police_ui.render("PV = "+str(p.get_etat()),True,pamplemou,None) 
         m = police_ui.render("Niveau "+str(lvl+1)+"       Pause : ECHAP   Mute : M",True,pamplemou,None)
-        m = police_ui.render("Pause : ECHAP     Mute : M",True,pamplemou,None)
         ui_rect = ui.get_rect()
         ui_rect.bottomleft = (5,685)
         m_rect = m.get_rect()
