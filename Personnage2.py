@@ -16,15 +16,15 @@ from TP import *
 
 class Personnage():
     def __init__(self, labDuPerso, nbVies, nbPersonnages=1):
-        self.__position=[1,1] # [1,1] case en haut à gauche
         self.__etat=nbVies # nombre de vies
         self.__win=False # = True quand le personnage a atteint la sortie
         self.__labDuPerso=labDuPerso.getMatrice()
+        self.__position=np.where(self.__labDuPerso==3)[0][0], np.where(self.__labDuPerso==3)[1][0]  #position initiale
+
         self.__compteur = 0
         self.__monstres = {}
         self.__degats= 0
-       # i,j = int(np.where(self.__labDuPerso==6)[0]),int(np.where(self.__labDuPerso==6)[1])
-       # self.__monstres["monstre_1"] = Monstre([i,j], self.__labDuPerso, "horiz", periode_deplacement=1)
+   
        
         
         
