@@ -22,6 +22,7 @@ class Personnage():
         self.__position=np.where(self.__labDuPerso==3)[0][0], np.where(self.__labDuPerso==3)[1][0]  #position initiale
 
         self.__compteur = 0
+        self.__dCompteur=20 #dans la fonction checkCompteur
         self.__monstres = {}
         self.__degats= 0
    
@@ -62,12 +63,18 @@ class Personnage():
 
     def incrementeCompteur(self):
         self.__compteur+=1
+        
+    def diminuter_dCompteur(self):
+        d=self.__dCompteur
+        if d>1:
+            self.__dCompteur=(self.__dCompteur+1)//2
+        # 20 10 5 3 1
 
-    def checkCompteur(self):
-        if self.__compteur%20 == 0:
+    def checkCompteur(self,):
+        
+        if self.__compteur%self.__dCompteur == 0:
             for monstre in self.__monstres.values():
                 monstre.order()
-        
 
 
     def direct(self,i,j,posi,posj) :   #posi, posj position actuelle du héros
@@ -80,7 +87,7 @@ class Personnage():
         elif self.__labDuPerso[i][j]==2 :
             self.__win=True
             
-        elif self.__labDuPerso[i][j]==4 or self.__labDuPerso[i][j] >6 :
+        elif self.__labDuPerso[i][j]==4 or self.__labDuPerso[i][j] == 8 or self.__labDuPerso[i][j] == 9 :
             self.__etat-=1
             self.__degats= duree_splash_degats
         
@@ -91,7 +98,14 @@ class Personnage():
             self.__labDuPerso[i][j]=3 # potion utilisée
             self.__position=[i,j]
             
-
+        elif self.__labDuPerso[i][j] == 7: #case accélération
+            self.diminuter_dCompteur()
+            self.__labDuPerso[posi][posj]=0 # le personnage se déplace dans le lab
+            self.__labDuPerso[i][j]=3 # malus utilisée
+            self.__position=[i,j]
+            
+        elif self.__labDuPerso[i][j] == 8 or self.__labDuPerso[i][j] ==9 : #les monstres
+            self.__etat -= 1
 
 
     def deplacement(self,direction):
@@ -157,7 +171,9 @@ class Personnage():
                     screen.blit(tp,(x,y))
                 if L[j][i] == 6 :
                     screen.blit(pot,(x,y))
-                if L[j][i] > 6 :
+                if L[j][i] == 7 :
+                    screen.blit(acc,(x,y))    
+                if L[j][i] == 8 or L[j][i] == 9 :
                     screen.blit(monstr,(x,y))
                 
                     
@@ -170,4 +186,5 @@ class Personnage():
         self.__init__(l,PV_max)
         self.__compteur = 0
         self.initMonstres()
+        self.__dCompteur = 20
             

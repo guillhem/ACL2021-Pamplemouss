@@ -147,7 +147,7 @@ while continuer : #boucle principale
                     screen.blit(txt_sup_vic,txt_sup_vicrect)
                     screen.blit(skib,skib_rect)
                     py.display.flip() 
-                    time.sleep(1)  
+                    time.sleep(2)  
                     
                     continuer_jeu = 0 #LE JOUEUR A FINI TOUS LES NIVEAUX
                     # lvl = 0

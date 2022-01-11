@@ -148,6 +148,9 @@ pot = pygame.transform.scale(pot, (taille_sprite, taille_sprite))
 arrivee = pygame.image.load(chemin+"image_arrivee.png").convert_alpha()
 arrivee = pygame.transform.scale(arrivee, (taille_sprite, taille_sprite))
 
+acc = pygame.image.load(chemin+"couteau_venere.png").convert_alpha() # acc pour acceleration
+acc = pygame.transform.scale(acc, (taille_sprite, taille_sprite))
+
 
 direc = pygame.image.load(chemin+"direction.png").convert_alpha()
 direc = pygame.transform.scale(direc, (200, 200))
