@@ -136,7 +136,6 @@ while continuer : #boucle principale
                 if lvl < (N-1) : #on passe au niveau suivant
                     screen.blit(fond,f_rect)
                     screen.blit(txt_vic,txt_vicrect)
-                    print('esgf',lvl)
                     py.display.flip() 
                     time.sleep(1)  
                     lvl += 1
@@ -147,7 +146,6 @@ while continuer : #boucle principale
                     screen.blit(fond,f_rect)
                     screen.blit(txt_sup_vic,txt_sup_vicrect)
                     screen.blit(skib,skib_rect)
-                    print('fuuuuuu',lvl)
                     py.display.flip() 
                     time.sleep(1)  
                     
