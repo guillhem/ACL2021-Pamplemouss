@@ -13,11 +13,11 @@ pygame.init()
 chemin = "images/"
 
 # param perso
-PV_max = 3
-duree_splash_degats= 8
+PV_max = 5
+duree_splash_degats = 8
 
 
-liste_lvl = ["niveau_1.txt", "niveau_2.txt"]
+liste_lvl = ["niveau_1.txt","niveau_2.txt"]
 N = len(liste_lvl)
 
 taille_sprite = 30
@@ -71,11 +71,22 @@ txt_vic = police.render("Niveau réussi ! GG bg",True,pamplemou,None)
 txt_vicrect = txt_vic.get_rect()
 txt_vicrect.center = rectScreen.center
 
+#texte de super victoire
+txt_sup_vic = police_deb.render("Bravo BG, tu as vaincu SKiBidi!!",True,pamplemou,None)
+txt_sup_vicrect = txt_vic.get_rect()
+txt_sup_vicrect.center = (330,200)
 
 #%% Images
 
 icone = pygame.image.load(chemin+"icone.jpg")
 pygame.display.set_icon(icone)
+
+#GG BG
+skib = pygame.image.load(chemin+"skib.png")
+skib = pygame.transform.scale(skib, (600,305))
+
+skib_rect = skib.get_rect()
+skib_rect.center = (330,400)
 
 # importation du logo
 pamp = pygame.image.load(chemin+"pamlemousse.jpg")
